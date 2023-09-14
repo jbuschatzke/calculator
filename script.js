@@ -29,4 +29,20 @@ let operate = function(num1, num2, operator) {
     } else {
         return "Erm...hi....";
     }
+};
+
+
+let buttons = function makeButtons(){
+    for (i = 0; i <= 9; i++){
+        let display = document.getElementById("buttons");
+        let btn = document.createElement("button");
+        btn.setAttribute("id", "button" + `${i}`);
+        btn.textContent = `${i}`;
+        btn.addEventListener("click", () => document.getElementById("display").textContent += btn.textContent);
+        display.appendChild(btn);
+    }
 }
+buttons();
+//clicking a button updates the calculator display and display variable
+// const button0 = document.getElementById("0");
+// button0.addEventListener("click", () => document.getElementById("display").textContent += "0");
