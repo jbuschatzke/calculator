@@ -9,10 +9,10 @@ let multiply = (a,b) => a * b;
 let divide = (a,b) => a / b;
 
 // calculator display variables
-
-let num1;
-let num2;
-let operator;
+let num1 = "";
+let num2 = "";
+let operator = "";
+let result = "";
 
 //operate function will take two user inputs and call a
 //calculation function based on the chosen operator
@@ -31,18 +31,56 @@ let operate = function(num1, num2, operator) {
     }
 };
 
+//clicking a button updates the calculator display and display variable
+let display = document.getElementById("display");
+
 
 let buttons = function makeButtons(){
     for (i = 0; i <= 9; i++){
-        let display = document.getElementById("buttons");
+        let buttonsDisplay = document.getElementById("buttons");
         let btn = document.createElement("button");
         btn.setAttribute("id", "button" + `${i}`);
         btn.textContent = `${i}`;
-        btn.addEventListener("click", () => document.getElementById("display").textContent += btn.textContent);
-        display.appendChild(btn);
+        btn.addEventListener("click", () => {
+            if (display.textContent == num1 || result == display.textContent) {
+            display.textContent = "";
+            display.textContent += btn.textContent;
+            } else {
+            display.textContent += btn.textContent;
+            }
+        });
+        buttonsDisplay.appendChild(btn);
     }
-}
+};
+
 buttons();
-//clicking a button updates the calculator display and display variable
-// const button0 = document.getElementById("0");
-// button0.addEventListener("click", () => document.getElementById("display").textContent += "0");
+
+//add event listeners for each operator call
+
+
+// let addOperator = function(){
+//     num1 = document.textContent;
+//     display.textContent = "";
+//     alert("I work!");
+// };
+
+
+let addBtn = document.getElementById("add");
+addBtn.addEventListener("click", () => {
+    if (num1 == ""){
+    num1 = +display.textContent;
+    console.log(num1);
+    } else if (typeof num1 == "number") {
+        num2 = +display.textContent;
+        operator = "+";
+        display.textContent = operate(num1, num2, operator);
+        num1 = +display.textContent;
+        console.log(num1, num2);
+    } else if (typeof num2 == "number") {
+        num2 = +display.textContent;
+        operator = "+";
+        display.textContent = operate(num1, num2, operator);
+        console.log(num1, num2, result);
+    }
+});
+
