@@ -71,7 +71,7 @@ addBtn.addEventListener("click", () => {
     num1 = +display.textContent;
     operator = "+";
     console.log(num1);
-    } else if (operator == "=") {
+    } else if (operator != "+") {
         operator = "+";
         num1 = +display.textContent;
         result = +display.textContent;
@@ -83,6 +83,64 @@ addBtn.addEventListener("click", () => {
         console.log(num1, num2);
     }
 });
+
+let subBtn = document.getElementById("subtract");
+subBtn.addEventListener("click", () => {
+    if (num1 == ""){
+    num1 = +display.textContent;
+    operator = "-";
+    console.log(num1);
+    } else if (operator != "-") {
+        operator = "-";
+        num1 = +display.textContent;
+        result = +display.textContent;
+    } else if (typeof num1 == "number") {
+        num2 = +display.textContent;
+        operator = "-";
+        display.textContent = operate(num1, num2, operator);
+        num1 = +display.textContent;
+        console.log(num1, num2);
+    }
+});
+
+let multBtn = document.getElementById("multiply");
+multBtn.addEventListener("click", () => {
+    if (num1 == ""){
+    num1 = +display.textContent;
+    operator = "*";
+    console.log(num1);
+    } else if (operator != "*") {
+        operator = "*";
+        num1 = +display.textContent;
+        result = +display.textContent;
+    } else if (typeof num1 == "number") {
+        num2 = +display.textContent;
+        operator = "*";
+        display.textContent = operate(num1, num2, operator);
+        num1 = +display.textContent;
+        console.log(num1, num2);
+    }
+});
+
+let divBtn = document.getElementById("divide");
+divBtn.addEventListener("click", () => {
+    if (num1 == ""){
+    num1 = +display.textContent;
+    operator = "/";
+    console.log(num1);
+    } else if (operator != "/") {
+        operator = "/";
+        num1 = +display.textContent;
+        result = +display.textContent;
+    } else if (typeof num1 == "number") {
+        num2 = +display.textContent;
+        operator = "/";
+        display.textContent = operate(num1, num2, operator);
+        num1 = +display.textContent;
+        console.log(num1, num2);
+    }
+});
+
 
 let equalsBtn = document.getElementById("equals");
 equalsBtn.addEventListener("click", () => {
