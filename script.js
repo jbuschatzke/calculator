@@ -42,7 +42,7 @@ let buttons = function makeButtons(){
         btn.setAttribute("id", "button" + `${i}`);
         btn.textContent = `${i}`;
         btn.addEventListener("click", () => {
-            if (display.textContent == num1 || result == display.textContent) {
+            if (display.textContent == num1 || display.textContent == result ) {
             display.textContent = "";
             display.textContent += btn.textContent;
             } else {
@@ -69,18 +69,33 @@ let addBtn = document.getElementById("add");
 addBtn.addEventListener("click", () => {
     if (num1 == ""){
     num1 = +display.textContent;
+    operator = "+";
     console.log(num1);
+    } else if (operator == "=") {
+        operator = "+";
+        num1 = +display.textContent;
+        result = +display.textContent;
     } else if (typeof num1 == "number") {
         num2 = +display.textContent;
         operator = "+";
         display.textContent = operate(num1, num2, operator);
         num1 = +display.textContent;
         console.log(num1, num2);
-    } else if (typeof num2 == "number") {
-        num2 = +display.textContent;
-        operator = "+";
-        display.textContent = operate(num1, num2, operator);
-        console.log(num1, num2, result);
     }
 });
 
+let equalsBtn = document.getElementById("equals");
+equalsBtn.addEventListener("click", () => {
+    if (typeof num2 != "number"){
+    num2 = +display.textContent;
+    display.textContent = operate(num1, num2, operator);
+    result = +display.textContent;
+    operator = "=";
+    console.log(num1, num2, operator);
+    } else {
+    num2 = +display.textContent;
+    display.textContent = operate(num1, num2, operator);
+    result = +display.textContent;
+    operator = "=";
+    }
+});
