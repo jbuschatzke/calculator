@@ -71,7 +71,12 @@ addBtn.addEventListener("click", () => {
     num1 = +display.textContent;
     operator = "+";
     console.log(num1);
-    } else if (operator != "+") {
+    } else if (operator != "+"  && operator == "=") {
+        num1 = +display.textContent;
+        operator = "+";
+    } else if (operator != "+"){
+        num2 = +display.textContent;
+        display.textContent = operate(num1, num2, operator);
         operator = "+";
         num1 = +display.textContent;
         result = +display.textContent;
@@ -90,7 +95,12 @@ subBtn.addEventListener("click", () => {
     num1 = +display.textContent;
     operator = "-";
     console.log(num1);
-    } else if (operator != "-") {
+    }  else if (operator != "-"  && operator == "=") {
+        num1 = +display.textContent;
+        operator = "-";
+    } else if (operator != "-"){
+        num2 = +display.textContent;
+        display.textContent = operate(num1, num2, operator);
         operator = "-";
         num1 = +display.textContent;
         result = +display.textContent;
@@ -109,7 +119,12 @@ multBtn.addEventListener("click", () => {
     num1 = +display.textContent;
     operator = "*";
     console.log(num1);
-    } else if (operator != "*") {
+    }  else if (operator != "*"  && operator == "=") {
+        num1 = +display.textContent;
+        operator = "*";
+    } else if (operator != "*"){
+        num2 = +display.textContent;
+        display.textContent = operate(num1, num2, operator);
         operator = "*";
         num1 = +display.textContent;
         result = +display.textContent;
@@ -128,7 +143,12 @@ divBtn.addEventListener("click", () => {
     num1 = +display.textContent;
     operator = "/";
     console.log(num1);
-    } else if (operator != "/") {
+    }  else if (operator != "/"  && operator == "=") {
+        num1 = +display.textContent;
+        operator = "/";
+    } else if (operator != "/"){
+        num2 = +display.textContent;
+        display.textContent = operate(num1, num2, operator);
         operator = "/";
         num1 = +display.textContent;
         result = +display.textContent;
