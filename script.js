@@ -1,12 +1,12 @@
 //calculation functions
 
-let add = (a,b) => a + b;
+let add = (a,b) => (a + b);
 
-let subtract = (a,b) => a - b;
+let subtract = (a,b) => (a - b);
 
-let multiply = (a,b) => a * b;
+let multiply = (a,b) => (a * b);
 
-let divide = (a,b) => a / b;
+let divide = (a,b) => (a / b);
 
 // calculator display variables
 let num1 = "";
@@ -19,13 +19,17 @@ let result = "";
 
 let operate = function(num1, num2, operator) {
     if (operator == "+") {
-        return add(num1, num2);
+        return Math.round((add(num1, num2)) * 10) / 10;
     } else if (operator == "-") {
-        return subtract(num1, num2);
+        return Math.round((subtract(num1, num2)) * 10) / 10;
     } else if (operator == "*") {
-        return multiply(num1, num2);
+        return Math.round((multiply(num1, num2)) * 10) / 10;
     } else if (operator == "/") {
-        return divide(num1, num2);
+        if (num2 == 0){
+            return "Are you TRYING to destroy the universe?"
+        } else {
+        return Math.round((divide(num1, num2)) * 10) / 10;
+        }
     } else {
         return "Erm...hi....";
     }
@@ -164,6 +168,9 @@ divBtn.addEventListener("click", () => {
 
 let equalsBtn = document.getElementById("equals");
 equalsBtn.addEventListener("click", () => {
+    if (num1 == "" || num2 == ""){
+        return display.textContent;
+    }
     if (typeof num2 != "number"){
     num2 = +display.textContent;
     display.textContent = operate(num1, num2, operator);
@@ -176,4 +183,12 @@ equalsBtn.addEventListener("click", () => {
     result = +display.textContent;
     operator = "=";
     }
+});
+
+let clearBtn = document.getElementById("clear");
+clearBtn.addEventListener("click", () => {
+    num1 = "";
+    num2 = "";
+    display.textContent = "";
+    operator = "";
 });
