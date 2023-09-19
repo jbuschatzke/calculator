@@ -65,6 +65,10 @@ document.getElementById("decimal").addEventListener("click", () => {
         display.textContent = "";
         display.textContent += decimal.textContent;
         decimal.disabled = true;
+    } else if (operator != "") {
+        display.textContent = "";
+        display.textContent += decimal.textContent;
+        decimal.disabled = true;
     } else {
     display.textContent += decimal.textContent;
     decimal.disabled = true;
