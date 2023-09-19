@@ -46,6 +46,10 @@ let buttons = function makeButtons(){
         btn.setAttribute("id", "button" + `${i}`);
         btn.textContent = `${i}`;
         btn.addEventListener("click", () => {
+            document.getElementById("add").disabled = false;
+            document.getElementById("subtract").disabled = false;
+            document.getElementById("multiply").disabled = false;
+            document.getElementById("divide").disabled = false;
             if (display.textContent == num1 || display.textContent == result ) {
             display.textContent = "";
             display.textContent += btn.textContent;
@@ -91,6 +95,7 @@ addBtn.addEventListener("click", () => {
         num1 = +display.textContent;
         console.log(num1, num2);
     }
+    addBtn.disabled = true;
 });
 
 let subBtn = document.getElementById("subtract");
@@ -115,6 +120,7 @@ subBtn.addEventListener("click", () => {
         num1 = +display.textContent;
         console.log(num1, num2);
     }
+    subBtn.disabled = true;
 });
 
 let multBtn = document.getElementById("multiply");
@@ -139,6 +145,7 @@ multBtn.addEventListener("click", () => {
         num1 = +display.textContent;
         console.log(num1, num2);
     }
+    multBtn.disabled = true;
 });
 
 let divBtn = document.getElementById("divide");
@@ -163,20 +170,20 @@ divBtn.addEventListener("click", () => {
         num1 = +display.textContent;
         console.log(num1, num2);
     }
+    divBtn.disabled = true;
 });
 
 
 let equalsBtn = document.getElementById("equals");
 equalsBtn.addEventListener("click", () => {
-    if (num1 == "" || num2 == ""){
-        return display.textContent;
-    }
-    if (typeof num2 != "number"){
+    if (typeof num1 == "number" && typeof num2 != "number"){
     num2 = +display.textContent;
     display.textContent = operate(num1, num2, operator);
     result = +display.textContent;
     operator = "=";
     console.log(num1, num2, operator);
+    } else if (typeof num1 != "number"){
+    return display.textContent;
     } else {
     num2 = +display.textContent;
     display.textContent = operate(num1, num2, operator);
