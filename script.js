@@ -26,7 +26,11 @@ let operate = function(num1, num2, operator) {
         return Math.round((multiply(num1, num2)) * 10) / 10;
     } else if (operator == "/") {
         if (num2 == 0){
-            return "Are you TRYING to destroy the universe?"
+            num1 = "";
+            num2 = "";
+            operator = "";
+            result = "";
+            alert("Are you TRYING to destroy the universe?");
         } else {
         return Math.round((divide(num1, num2)) * 10) / 10;
         }
@@ -46,10 +50,7 @@ let buttons = function makeButtons(){
         btn.setAttribute("id", "button" + `${i}`);
         btn.textContent = `${i}`;
         btn.addEventListener("click", () => {
-            document.getElementById("add").disabled = false;
-            document.getElementById("subtract").disabled = false;
-            document.getElementById("multiply").disabled = false;
-            document.getElementById("divide").disabled = false;
+            enableBtns();
             if (display.textContent == num1 || display.textContent == result ) {
             display.textContent = "";
             display.textContent += btn.textContent;
@@ -71,6 +72,11 @@ buttons();
 //     display.textContent = "";
 //     alert("I work!");
 // };
+let disableBtns = () => {
+    document.querySelectorAll("button.opBtn").forEach(elem => {elem.disabled = true})};
+
+let enableBtns = () => {
+    document.querySelectorAll("button.opBtn").forEach(elem => {elem.disabled = false})};
 
 
 let addBtn = document.getElementById("add");
@@ -95,7 +101,7 @@ addBtn.addEventListener("click", () => {
         num1 = +display.textContent;
         console.log(num1, num2);
     }
-    addBtn.disabled = true;
+    disableBtns();
 });
 
 let subBtn = document.getElementById("subtract");
@@ -120,7 +126,7 @@ subBtn.addEventListener("click", () => {
         num1 = +display.textContent;
         console.log(num1, num2);
     }
-    subBtn.disabled = true;
+    disableBtns();
 });
 
 let multBtn = document.getElementById("multiply");
@@ -145,7 +151,7 @@ multBtn.addEventListener("click", () => {
         num1 = +display.textContent;
         console.log(num1, num2);
     }
-    multBtn.disabled = true;
+    disableBtns();
 });
 
 let divBtn = document.getElementById("divide");
@@ -170,7 +176,7 @@ divBtn.addEventListener("click", () => {
         num1 = +display.textContent;
         console.log(num1, num2);
     }
-    divBtn.disabled = true;
+    disableBtns();
 });
 
 
