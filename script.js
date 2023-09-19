@@ -41,8 +41,6 @@ let operate = function(num1, num2, operator) {
 
 //clicking a button updates the calculator display and display variable
 let display = document.getElementById("display");
-
-
 let buttons = function makeButtons(){
     for (i = 0; i <= 9; i++){
         let buttonsDisplay = document.getElementById("buttons");
@@ -61,17 +59,18 @@ let buttons = function makeButtons(){
         buttonsDisplay.appendChild(btn);
     }
 };
-
 buttons();
+document.getElementById("decimal").addEventListener("click", () => {
+    if (operator == "=") {
+        display.textContent = "";
+        display.textContent += decimal.textContent;
+        decimal.disabled = true;
+    } else {
+    display.textContent += decimal.textContent;
+    decimal.disabled = true;
+    }
+});
 
-//add event listeners for each operator call
-
-
-// let addOperator = function(){
-//     num1 = document.textContent;
-//     display.textContent = "";
-//     alert("I work!");
-// };
 let disableBtns = () => {
     document.querySelectorAll("button.opBtn").forEach(elem => {elem.disabled = true})};
 
@@ -102,6 +101,7 @@ addBtn.addEventListener("click", () => {
         console.log(num1, num2);
     }
     disableBtns();
+    decimal.disabled = false;
 });
 
 let subBtn = document.getElementById("subtract");
@@ -127,6 +127,7 @@ subBtn.addEventListener("click", () => {
         console.log(num1, num2);
     }
     disableBtns();
+    decimal.disabled = false;
 });
 
 let multBtn = document.getElementById("multiply");
@@ -152,6 +153,7 @@ multBtn.addEventListener("click", () => {
         console.log(num1, num2);
     }
     disableBtns();
+    decimal.disabled = false;
 });
 
 let divBtn = document.getElementById("divide");
@@ -177,6 +179,7 @@ divBtn.addEventListener("click", () => {
         console.log(num1, num2);
     }
     disableBtns();
+    decimal.disabled = false;
 });
 
 
@@ -196,6 +199,7 @@ equalsBtn.addEventListener("click", () => {
     result = +display.textContent;
     operator = "=";
     }
+    decimal.disabled = false;
 });
 
 let clearBtn = document.getElementById("clear");
