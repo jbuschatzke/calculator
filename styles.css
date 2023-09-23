@@ -1,5 +1,44 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 75px;
+    background-color: white;
+}
+
+#container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 420px;
+    height: 420px;
+}
+
 #display{
-    background-color: lightgray;
-    border: 1px darkgray solid;
-    height: 20px;
+    flex: 1;
+    background-color: #f5e4ef;
+    border: 1px #f5d0e4 solid;
+    height: 70px;
+    font-size: 48px;
+    color: white;
+    text-shadow: 1px 1px 2px #beeefa;
+    font-weight: bold;
+}
+
+
+
+#rowOne, #rowTwo, #rowThree, #rowFour, #rowFive{
+    display: flex;
+    flex: 1;
+    width: 420px;
+    height: 70px;
+}
+
+button{
+    flex: 1;
+    background-color: #beeefa;
+    border: 1px #f5d0e4 solid;
+    font-size: 24px;
+    color: white;
+    text-shadow: 1px 1px 2px pink;
+    font-weight: bold;
 }
