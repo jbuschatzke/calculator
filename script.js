@@ -59,7 +59,16 @@ let buttons = function makeButtons(){
             display.textContent += btn.textContent;
             }
         });
-        buttonsDisplay.appendChild(btn);
+        if (i == 0) {
+            document.getElementById("rowFour").prepend(btn);
+        } else if (i >= 1 && i < 4) {
+            document.getElementById("rowThree").prepend(btn);
+        } else if (i >= 4 && i <= 6) {
+            document.getElementById("rowTwo").prepend(btn);
+        } else if (i >=7 && i < 10) {
+            document.getElementById("rowOne").prepend(btn);
+        }
+        // buttonsDisplay.prepend(btn);
     }
 };
 buttons();
