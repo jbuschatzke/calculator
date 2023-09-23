@@ -20,11 +20,11 @@ let decimalToggle = "off";
 
 let operate = function(num1, num2, operator) {
     if (operator == "+") {
-        return Math.round((add(num1, num2)) * 10) / 10;
+        return Math.round((add(num1, num2)) * 100) / 100;
     } else if (operator == "-") {
-        return Math.round((subtract(num1, num2)) * 10) / 10;
+        return Math.round((subtract(num1, num2)) * 100) / 100;
     } else if (operator == "*") {
-        return Math.round((multiply(num1, num2)) * 10) / 10;
+        return Math.round((multiply(num1, num2)) * 100) / 100;
     } else if (operator == "/") {
         if (num2 == 0){
             num1 = "";
@@ -33,8 +33,10 @@ let operate = function(num1, num2, operator) {
             result = "";
             alert("Are you TRYING to destroy the universe?");
         } else {
-        return Math.round((divide(num1, num2)) * 10) / 10;
+        return Math.round((divide(num1, num2)) * 100) / 100;
         }
+    } else if (operator == "=") {
+        return display.textContent;
     } else {
         return "Erm...hi....";
     }
