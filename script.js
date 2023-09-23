@@ -68,6 +68,9 @@ document.getElementById("decimal").addEventListener("click", () => {
         display.textContent = "";
         display.textContent += decimal.textContent;
         decimal.disabled = true;
+    } else if (display.textContent == "-") {
+        display.textContent += "0.";
+        decimal.disabled = true;
     } else if (decimalToggle == "on") {
         num1 = +display.textContent;
         display.textContent = "0.";
@@ -75,6 +78,19 @@ document.getElementById("decimal").addEventListener("click", () => {
     } else {
     display.textContent += decimal.textContent;
     decimal.disabled = true;
+    }
+});
+
+//positive/negative integer
+document.getElementById("posNeg").addEventListener("click", () => {
+    if (decimalToggle == "on" && display.textContent == num1){
+    num1 = +display.textContent;
+    display.textContent = "";
+    display.textContent += "-";
+    } else if (display.textContent.includes("-")) {
+    display.textContent = display.textContent.replace("-", "");
+    } else {
+    display.textContent = "-" + display.textContent;
     }
 });
 
