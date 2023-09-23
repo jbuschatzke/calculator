@@ -13,6 +13,7 @@ let num1 = "";
 let num2 = "";
 let operator = "";
 let result = "";
+let decimalToggle = "off";
 
 //operate function will take two user inputs and call a
 //calculation function based on the chosen operator
@@ -60,14 +61,16 @@ let buttons = function makeButtons(){
     }
 };
 buttons();
+
+//decimal functionality
 document.getElementById("decimal").addEventListener("click", () => {
     if (operator == "=") {
         display.textContent = "";
         display.textContent += decimal.textContent;
         decimal.disabled = true;
-    } else if (operator != "") {
-        display.textContent = "";
-        display.textContent += decimal.textContent;
+    } else if (decimalToggle == "on") {
+        num1 = +display.textContent;
+        display.textContent = "0.";
         decimal.disabled = true;
     } else {
     display.textContent += decimal.textContent;
@@ -75,11 +78,17 @@ document.getElementById("decimal").addEventListener("click", () => {
     }
 });
 
+let opBtns = document.querySelectorAll("button.opBtn");
+
 let disableBtns = () => {
-    document.querySelectorAll("button.opBtn").forEach(elem => {elem.disabled = true})};
+    document.querySelectorAll("button.opBtn").forEach(elem => {elem.disabled = true})
+    decimalToggle = "on";
+};
 
 let enableBtns = () => {
-    document.querySelectorAll("button.opBtn").forEach(elem => {elem.disabled = false})};
+    document.querySelectorAll("button.opBtn").forEach(elem => {elem.disabled = false})
+    decimalToggle = "off";
+};
 
 
 let addBtn = document.getElementById("add");
@@ -212,4 +221,5 @@ clearBtn.addEventListener("click", () => {
     num2 = "";
     display.textContent = "";
     operator = "";
+    decimal.disabled = false;
 });
