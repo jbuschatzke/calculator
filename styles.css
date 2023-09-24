@@ -3,7 +3,8 @@ body{
     justify-content: center;
     align-items: center;
     margin-top: 75px;
-    background-color: white;
+    background-color: #93B3CF;
+    padding: 20px;
 }
 
 #container{
@@ -41,4 +42,12 @@ button{
     color: white;
     text-shadow: 1px 1px 2px pink;
     font-weight: bold;
+}
+
+button:active{
+    background-color: #f5d0e4;
+}
+
+button:disabled{
+    background-color: #d5eef5;
 }
